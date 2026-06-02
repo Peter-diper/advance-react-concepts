@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-interface Todo {
+export interface Todo {
   id: number;
   title: string;
   userId: number;
@@ -12,8 +12,6 @@ const useTodos = () => {
       .get<Todo[]>("https://jsonplaceholder.typicode.com/todos")
       .then((res) => res.data);
   };
-
-  console.log(fetchData());
 
   return useQuery<Todo[], Error>({
     queryKey: ["todos"],
