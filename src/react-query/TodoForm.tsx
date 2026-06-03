@@ -1,5 +1,3 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
 import { useRef } from "react";
 import { Todo } from "./hooks/useTodos";
 import useAddTodo from "./hooks/useAddTodo";
