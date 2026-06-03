@@ -1,20 +1,13 @@
+import { APIClient } from "./../services/api-clinet";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-export interface Todo {
-  id: number;
-  title: string;
-  userId: number;
-  completed: boolean;
-}
-const useTodos = () => {
-  const fetchData = () => {
-    return axios
-      .get<Todo[]>("https://jsonplaceholder.typicode.com/todos")
-      .then((res) => res.data);
-  };
+import { TODO_QUERY_KEY } from "../constant";
+import { Todo, todoApiClinet } from "../services/httpServices";
 
+const useTodos = () => {
+  const fetchData = todoApiClinet.getAll;
   return useQuery<Todo[], Error>({
-    queryKey: ["todos"],
+    queryKey: TODO_QUERY_KEY,
     queryFn: fetchData,
     staleTime: 10 * 1000,
   });
