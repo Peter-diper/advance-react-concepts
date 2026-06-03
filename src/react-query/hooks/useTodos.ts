@@ -1,11 +1,14 @@
+import { APIClient } from "./../services/api-clinet";
 import { useQuery } from "@tanstack/react-query";
-import { QUERY_TODO_KEY } from "../constant";
-import todoService, { Todo } from "../services/todoService";
+import axios from "axios";
+import { TODO_QUERY_KEY } from "../constant";
+import { Todo, todoApiClinet } from "../services/httpServices";
 
 const useTodos = () => {
+  const fetchData = todoApiClinet.getAll;
   return useQuery<Todo[], Error>({
-    queryKey: QUERY_TODO_KEY,
-    queryFn: todoService.getAll,
+    queryKey: TODO_QUERY_KEY,
+    queryFn: fetchData,
     staleTime: 10 * 1000,
   });
 };

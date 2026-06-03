@@ -1,12 +1,19 @@
 import { useRef } from "react";
+import { Todo } from "./hooks/useTodos";
 import useAddTodo from "./hooks/useAddTodo";
+
+interface TodoContext {
+  previousTodos: Todo[];
+}
 
 const TodoForm = () => {
   const ref = useRef<HTMLInputElement>(null);
 
-  const { mutate: todoMutate, isLoading } = useAddTodo(() => {
+  const clearInput = () => {
     if (ref.current) ref.current.value = "";
-  });
+  };
+
+  const { mutate: todoMutate } = useAddTodo(clearInput);
 
   return (
     <form
