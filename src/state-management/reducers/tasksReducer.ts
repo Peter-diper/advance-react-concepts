@@ -7,14 +7,14 @@ interface DeleteTask {
   taskId: number;
 }
 
-type TaskAction = AddTask | DeleteTask;
+export type AuthAction = AddTask | DeleteTask;
 
-interface Task {
+export interface Task {
   id: number;
   title: string;
 }
 
-function taskResucer(tasks: Task[], action: TaskAction): Task[] {
+function taskResucer(tasks: Task[], action: AuthAction): Task[] {
   switch (action.type) {
     case "ADD": {
       return [action.task, ...tasks];

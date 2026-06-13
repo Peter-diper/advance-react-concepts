@@ -1,7 +1,13 @@
-import TaskList from './TaskList';
+import LoginStatus from "./LoginStatus";
+import TaskList from "./TaskList";
 
 const HomePage = () => {
-  return <TaskList />;
+  return (
+    <>
+      <LoginStatus />
+      <TaskList />
+    </>
+  );
 };
 
 export default HomePage;

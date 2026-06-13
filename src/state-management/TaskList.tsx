@@ -1,11 +1,14 @@
-import { useReducer } from "react";
-import taskResucer from "./reducers/tasksReducer";
+import { useContext } from "react";
+import UserContext from "./context/userContext";
+import { useTasks } from "./hooks/useTasks";
 
 const TaskList = () => {
-  const [tasks, taskDispatch] = useReducer(taskResucer, []);
+  const { dispatch: taskDispatch, tasks } = useTasks();
+  const { user } = useContext(UserContext);
 
   return (
     <>
+      <p>User: {user}</p>
       <button
         onClick={() =>
           taskDispatch({
@@ -13,6 +16,7 @@ const TaskList = () => {
             task: { id: Date.now(), title: "Task " + Date.now() },
           })
         }
+        disabled={!user}
         className="btn btn-primary my-3"
       >
         Add Task

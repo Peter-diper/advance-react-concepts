@@ -6,7 +6,7 @@ interface UserLogOut {
   type: "LOGOUT";
 }
 
-type LoginAction = UserLogIn | UserLogOut;
+export type LoginAction = UserLogIn | UserLogOut;
 
 export default function loginStatusReducer(
   user: string,
