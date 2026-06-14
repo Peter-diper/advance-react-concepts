@@ -1,10 +1,12 @@
 import { useContext } from "react";
-import UserContext from "./context/userContext";
-import { useTasks } from "./hooks/useTasks";
+import TaskContext from "./taskContext";
+import useUserStore from "../auth/soter";
+
+const useTasks = () => useContext(TaskContext);
 
 const TaskList = () => {
   const { dispatch: taskDispatch, tasks } = useTasks();
-  const { user } = useContext(UserContext);
+  const { user } = useUserStore();
 
   return (
     <>

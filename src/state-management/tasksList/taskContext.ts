@@ -1,9 +1,9 @@
 import React, { Dispatch } from "react";
-import { Task, AuthAction } from "../reducers/tasksReducer";
+import { Task, TaskAction } from "./TasksProvider";
 
 interface TasksContextType {
   tasks: Task[];
-  dispatch: Dispatch<AuthAction>;
+  dispatch: Dispatch<TaskAction>;
 }
 
 //  ?? what is this? why as fix the problem

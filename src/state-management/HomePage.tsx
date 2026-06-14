@@ -1,5 +1,5 @@
-import LoginStatus from "./LoginStatus";
-import TaskList from "./TaskList";
+import LoginStatus from "./auth/LoginStatus";
+import TaskList from "./tasksList/TaskList";
 
 const HomePage = () => {
   return (

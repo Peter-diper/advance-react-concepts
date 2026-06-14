@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import { Todo } from "./hooks/useTodos";
 import useAddTodo from "./hooks/useAddTodo";
+import { Todo } from "./services/httpServices";
 
 interface TodoContext {
   previousTodos: Todo[];
