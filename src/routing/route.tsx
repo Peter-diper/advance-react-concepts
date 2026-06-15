@@ -5,6 +5,7 @@ import Layout from "./Layout";
 import UsersPage from "./UsersPage";
 import ErrorPage from "./ErrorPage";
 import LoginPage from "./LoginPage";
+import PrivetRoutes from "./PrivetRoutes";
 
 const router = createBrowserRouter([
   {
@@ -13,15 +14,20 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
+
+      { path: "/login", element: <LoginPage /> },
+    ],
+  },
+  {
+    element: <PrivetRoutes />,
+    children: [
       {
         path: "users",
         element: <UsersPage />,
         children: [{ path: ":id", element: <UserDetail /> }],
       },
-      { path: "/login", element: <LoginPage /> },
     ],
   },
-  
 ]);
 
 export default router;
