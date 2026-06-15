@@ -2,6 +2,7 @@ import { create } from "zustand";
 
 interface UsreStore {
   user: string;
+
   login: (logedUser: string) => void;
   logout: () => void;
 }

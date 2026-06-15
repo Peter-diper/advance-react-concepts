@@ -1,5 +1,6 @@
 import useCounterStore from "./store";
 
+
 const Counter = () => {
   const { counter: state, increase, reset } = useCounterStore();
   return (
@@ -14,5 +15,4 @@ const Counter = () => {
     </div>
   );
 };
-
 export default Counter;
